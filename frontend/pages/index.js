@@ -97,13 +97,13 @@ export default function Home() {
       </Head>
 
       <section className="header_data_section">
-        <img src="/img/BambooSleeping.jpg" alt="Background" className="background-image opacity-90" />
+        <img src="/img/BambooSleeping.jpeg" alt="Background" className="background-image opacity-90" />
         <div className="header-container flex flex-sb w-100">
           <div className="leftheader_info">
             <h1 data-aos="fade-right">
               <span>Bamboo </span>Sleeping<span>.</span> <br />
             </h1>
-            <h3 data-aos="fade-right">Your bamboo sleeping gear expert</h3>
+            <h3 data-aos="fade-right">Your bamboo bedding expert</h3>
             <div className="flex gap-2">
               <Link href="/contact">
                 <button>Contact</button>

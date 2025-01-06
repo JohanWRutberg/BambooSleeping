@@ -17,7 +17,7 @@ body {
 }
 
 body.dark {
-  background-color: #1b1f1d;
+  background-color: #333333;
 }
 
 .topLoadingLine {
@@ -45,7 +45,7 @@ body.dark {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d99605;
+  background-color: #4c9a62;
   border-radius: 50%;
   /* box-shadow: 0 5px 10px #d3b063; */
   color: #fff;
@@ -315,13 +315,13 @@ button {
 
 .header_sec {
   position: relative;
-  background-color: #fff;
+  background-color: #e9f5ec;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06), inset 0 -3px 5px rgba(217, 150, 5, 0.3);
   z-index: 10;
 }
 
 .dark .header_sec {
-  background-color: #303e38;
+  background-color: #4c4c4c;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.12), inset 0 -3px 5px rgba(255, 193, 7, 0.2);
 }
 
@@ -332,14 +332,19 @@ button {
   left: 0;
   right: 0;
   height: 8px;
-  background: linear-gradient(90deg, #d99605, #ff8c00, #ff0080);
+  background: linear-gradient(90deg, #6dbf73, #48a868, #2c8653);
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
-/* .header_logo {
-} */
+.header_logo .logo {
+  content: url("/img/Logo/BambooSleeping_logo_black.png");
+}
+
+.dark .header_logo .logo {
+  content: url("/img/Logo/BambooSleeping_logo_white.png");
+}
 
 .header {
   position: relative;
@@ -368,7 +373,7 @@ button {
 
 .dark .searchbar {
   background-color: #7b8275;
-  border: 1px solid #1b1f1d;
+  border: 1px solid #333333;
 }
 
 .searchbar input {
@@ -419,7 +424,7 @@ button {
 }
 
 .nav_list_dark ul li a:hover {
-  color: #d99605;
+  color: #4c9a62;
 }
 
 /* navlist_mobile- */
@@ -438,7 +443,7 @@ button {
 }
 
 .dark .navlist_mobile {
-  background-color: #1b1f1d;
+  background-color: #333333;
 }
 
 .navlist_mobile.open {
@@ -480,7 +485,7 @@ button {
 }
 
 .navlist_mobile ul li:hover {
-  color: #d99605;
+  color: #4c9a62;
 }
 
 .darkmode {
@@ -565,7 +570,7 @@ button {
 }
 
 .dark .search_click {
-  background-color: #1b1f1dad;
+  background-color: #333333ad;
 }
 
 .search_click.open {
@@ -692,18 +697,18 @@ button {
 }
 
 .navlist_mobile_ul button:hover {
-  background-color: #d99605;
-  color: #f1f8e9;
+  background-color: #4c9a62;
+  color: #faf9f6;
 }
 
 .dark .navlist_mobile_ul button {
-  color: #f1f8e9;
-  background-color: #1b1f1d; /* transparent */
+  color: #faf9f6;
+  background-color: #333333; /* transparent */
 }
 
 .dark .navlist_mobile_ul button:hover {
-  background-color: #d99605;
-  color: #1b1f1d;
+  background-color: #4c9a62;
+  color: #333333;
 }
 
 /* ================================================== */
@@ -756,15 +761,15 @@ button {
   font-family: "Inter", sans-serif;
   font-size: 4rem;
   font-weight: 900;
-  color: #edf2f7; /* #2d3748 */
+  color: #e9f5ec; /* #2d3748 */
 }
 
 .dark .leftheader_info h1 {
-  color: #edf2f7;
+  color: #e9f5ec;
 }
 
 .leftheader_info span {
-  color: #d99605;
+  color: #4c9a62;
 }
 
 .leftheader_info h3 {
@@ -799,9 +804,9 @@ button {
 }
 
 .leftheader_info a:nth-child(1) button {
-  background-color: #d99605;
+  background-color: #4c9a62;
   color: #fff;
-  border: 3px solid #d99605;
+  border: 3px solid #4c9a62;
 }
 
 .leftheader_info a:nth-child(2) button {
@@ -954,12 +959,12 @@ button {
 
 .main_blog_section {
   position: relative;
-  background-color: #f1f8e9;
+  background-color: #faf9f6;
   padding: 3rem 0;
 }
 
 .dark .main_blog_section {
-  background-color: #1b1f1d; /* 303e38 */
+  background-color: #333333; /* 303e38 */
 }
 
 .leftblog_sec {
@@ -997,7 +1002,7 @@ button {
 .blog {
   display: flex;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #e9f5ec;
   align-items: center;
   max-width: 1000px;
   gap: 2rem;
@@ -1009,7 +1014,7 @@ button {
 }
 
 .dark .blog {
-  background-color: #303e38;
+  background-color: #4c4c4c;
   border: none;
 }
 
@@ -1083,7 +1088,7 @@ button {
 }
 
 .dark .blogaimg {
-  background-color: #1b1f1d;
+  background-color: #333333;
 }
 
 .blogaimg img {
@@ -1151,12 +1156,12 @@ button {
 }
 
 .blogpagination button:hover {
-  background-color: #d99605;
+  background-color: #4c9a62;
   color: #fff;
 }
 
 .blogpagination button.active {
-  background-color: #d99605;
+  background-color: #4c9a62;
   color: #fff;
 }
 
@@ -1207,7 +1212,7 @@ button {
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #e9f5ec;
   border: 1px solid #d1d1d1;
   border-radius: 20px;
   overflow: hidden;
@@ -1219,7 +1224,7 @@ button {
 .dark .topics {
   border: none;
   box-shadow: none;
-  background-color: #303e38;
+  background-color: #4c4c4c;
 }
 
 .topics_svg {
@@ -1253,7 +1258,7 @@ button {
 }
 
 .topics:hover .topics_svg {
-  background-color: #d99605;
+  background-color: #4c9a62;
   color: #fff;
 }
 
@@ -1275,7 +1280,7 @@ button {
   justify-content: space-evenly; /* Evenly distribute items horizontally */
   align-items: center; /* Align items vertically in the center */
   gap: 10px; /* Spacing between items */
-  background-color: #fff;
+  background-color: #e9f5ec;
   border: 1px solid #d4d4d4;
   border-radius: 10px;
   padding: 2rem 1.5rem;
@@ -1284,7 +1289,7 @@ button {
 
 .dark .tags_list {
   border: none;
-  background-color: #303e38;
+  background-color: #4c4c4c;
   box-shadow: none;
 }
 
@@ -1546,14 +1551,14 @@ a:hover .st_icon_amazon,
 
 .footer {
   padding: 4rem 1rem; /* Initial padding */
-  background-color: #ffffff; /* Unified background color for dark mode */
+  background-color: #e9f5ec; /* Unified background color for dark mode */
   color: #818a94; /* Default text color */
   position: relative;
   width: 100%;
 }
 
 .dark .footer {
-  background-color: #303e38;
+  background-color: #4c4c4c;
 }
 
 .footer a:hover {
@@ -1768,12 +1773,12 @@ a.custom-button {
 .slugpage {
   position: relative;
   padding-top: 5rem;
-  background-color: #f1f8e9;
+  background-color: #faf9f6;
   font-family: "Nunito", sans-serif;
 }
 
 .dark .slugpage {
-  background-color: #1b1f1d;
+  background-color: #333333;
 }
 
 .slugtitle {
@@ -2141,11 +2146,11 @@ a.custom-button {
   width: 100%;
   height: auto;
   padding: 5rem 0;
-  background-color: #f1f8e9;
+  background-color: #faf9f6;
 }
 
 .dark .category_slug {
-  background-color: #1b1f1d;
+  background-color: #333333;
 }
 
 .category_title {

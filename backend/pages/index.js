@@ -139,7 +139,7 @@ export default function Home() {
     return (
       <>
         <Head>
-          <title>TopGear Tents Admin Dashboard</title>
+          <title>Bamboo Sleeping Admin Dashboard</title>
           <meta name="description" content="admin dashboard next app" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
@@ -150,7 +150,7 @@ export default function Home() {
           <div className="titledashboard flex flex-sb">
             <div data-aos="fade-right">
               <h2>
-                TopGear Tents Blogs <span>Dashboard</span>
+                Bamboo Sleeping Blogs <span>Dashboard</span>
               </h2>
               <h3>ADMIN PANEL</h3>
             </div>
