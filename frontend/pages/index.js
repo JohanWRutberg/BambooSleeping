@@ -244,28 +244,17 @@ export default function Home() {
             <div className="tags_sec mt-3">
               <h2>Tags</h2>
               <div className="tags_list">
-                <Link href="/tag/accessories">#Accessories</Link>
-                <Link href="/tag/bed">#Bed</Link>
-                <Link href="/tag/brand">#Brand</Link>
-                <Link href="/tag/budget">#Budget</Link>
-                <Link href="/tag/camping">#Camping</Link>
-                <Link href="/tag/canopy">#Canopy</Link>
-                <Link href="/tag/car">#Car</Link>
-                <Link href="/tag/cover">#Cover</Link>
-                <Link href="/tag/destination">#Destination</Link>
-                <Link href="/tag/guide">#Guide</Link>
-                <Link href="/tag/hardshell">#Hardshell</Link>
-                <Link href="/tag/jeep">#Jeep</Link>
-                <Link href="/tag/premium">#Premium</Link>
-                <Link href="/tag/rooftop">#Rooftop</Link>
-                <Link href="/tag/setup">#Setup</Link>
-                <Link href="/tag/shell">#Shell</Link>
-                <Link href="/tag/summer">#Summer</Link>
-                <Link href="/tag/suv">#SUV</Link>
-                <Link href="/tag/tent">#Tent</Link>
-                <Link href="/tag/tentbox">#Tentbox</Link>
-                <Link href="/tag/truck">#Truck</Link>
-                <Link href="/tag/vehicle">#Vehicle</Link>
+                <Link href="/tag/">#Bamboo</Link>
+                <Link href="/tag/">#EcoSleep</Link>
+                <Link href="/tag/">#Sustainable</Link>
+                <Link href="/tag/">#Pillows</Link>
+                <Link href="/tag/">#Bedding</Link>
+                <Link href="/tag/">#Comfort</Link>
+                <Link href="/tag/">#SleepWell</Link>
+                <Link href="/tag/">#GreenLiving</Link>
+                <Link href="/tag/">#Luxury</Link>
+                <Link href="/tag/">#Natural</Link>
+
                 {/* Add other tags */}
               </div>
             </div>

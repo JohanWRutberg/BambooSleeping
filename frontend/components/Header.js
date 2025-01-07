@@ -189,55 +189,55 @@ export default function Header() {
         {/* Mobile navlist */}
         <div className={aside ? `navlist_mobile open` : "navlist_mobile"}>
           <div className="navlist_m_title flex flex-sb">
-            <h2 className="mt-1 text-xl text-[#d99605]">Bamboo Sleeping Blog</h2>
+            <h2 className="mt-1 text-xl text-[#4C9A62]">Bamboo Sleeping Blog</h2>
             <button onClick={asideClose}>
               <FaXmark />
             </button>
           </div>
           <hr />
-          <h3 className="mt-2 text-xl text-[#d99605]">Main Menu</h3>
+          <h3 className="mt-2 text-xl text-[#7FB3E6]">Main Menu</h3>
           <ul onClick={handleLinkClick}>
             <li>
-              <Link href="/" className="text-md hover:text-[#d99605]">
+              <Link href="/" className="text-md hover:text-[#4C9A62]">
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/about" className="text-md hover:text-[#d99605]">
+              <Link href="/about" className="text-md hover:text-[#4C9A62]">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="text-md hover:text-[#d99605]">
+              <Link href="/contact" className="text-md hover:text-[#4C9A62]">
                 Contact
               </Link>
             </li>
           </ul>
           <hr />
-          <h3 className="mt-2 text-xl text-[#d99605]">Topics</h3>
+          <h3 className="mt-2 text-xl text-[#7FB3E6]">Topics</h3>
           <ul onClick={handleLinkClick}>
             <li>
-              <Link href="/topics/pillows" className="text-md hover:text-[#d99605]">
+              <Link href="/topics/pillows" className="text-md hover:text-[#4C9A62]">
                 Pillows
               </Link>
             </li>
             <li>
-              <Link href="/topics/bedding" className="text-md hover:text-[#d99605]">
+              <Link href="/topics/bedding" className="text-md hover:text-[#4C9A62]">
                 Bedding
               </Link>
             </li>
             <li>
-              <Link href="/topics/" className="text-md hover:text-[#d99605]">
+              <Link href="/topics/" className="text-md hover:text-[#4C9A62]">
                 Something else
               </Link>
             </li>
             <li>
-              <Link href="/topics/" className="text-md hover:text-[#d99605]">
+              <Link href="/topics/" className="text-md hover:text-[#4C9A62]">
                 Something else
               </Link>
             </li>
             <li>
-              <Link href="/topics/acessories" className="text-md hover:text-[#d99605]">
+              <Link href="/topics/acessories" className="text-md hover:text-[#4C9A62]">
                 Something else
               </Link>
             </li>

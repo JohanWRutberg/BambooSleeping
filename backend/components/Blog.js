@@ -89,9 +89,9 @@ export default function Blog({
           >
             <option value="pillows">Pillows</option>
             <option value="bedding">Bedding</option>
-            <option value="">Something else</option>
-            <option value="">Something else</option>
-            <option value="">Something else</option>
+            <option value="comfort">Comfort</option>
+            <option value="sleep">Sleep</option>
+            <option value="quality">Quality</option>
           </select>
           <p className="existingcategory flex gap-1 mt-1 mb-1">
             Selected:{" "}
@@ -175,16 +175,16 @@ export default function Blog({
             onChange={(e) => setTags(Array.from(e.target.selectedOptions, (option) => option.value))}
             multiple
           >
-            <option value="">Something 1</option>
-            <option value="">Something 2</option>
-            <option value="">Something 3</option>
-            <option value="">Something 4</option>
-            <option value="">Something 5</option>
-            <option value="">Something 6</option>
-            <option value="">Something 7</option>
-            <option value="">Something 8</option>
-            <option value="">Something 9</option>
-            <option value="">Something 10</option>
+            <option value="bamboo">Bamboo</option>
+            <option value="bedding">Bedding</option>
+            <option value="breathable">Breathable</option>
+            <option value="comfort">Comfort</option>
+            <option value="ecofriendly">Ecofriendly</option>
+            <option value="luxury">Luxury</option>
+            <option value="organic">Organic</option>
+            <option value="pillows">Pillows</option>
+            <option value="relaxation">Relaxation</option>
+            <option value="sustainable">Sustainable</option>
           </select>
           <p className="existingcategory flex gap-1 mt-1 mb-1">
             Vald:{" "}
