@@ -4,9 +4,10 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { BsAmazon } from "react-icons/bs";
-import { LuTentTree, LuTent } from "react-icons/lu";
-import { FaTent } from "react-icons/fa6";
-import { GiCampingTent } from "react-icons/gi";
+import { LuBedDouble } from "react-icons/lu";
+import { GiPillow } from "react-icons/gi";
+import { TbStars } from "react-icons/tb";
+import { GiNightSleep, GiBamboo } from "react-icons/gi";
 import { LuTrees } from "react-icons/lu";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -340,7 +341,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                   <Link href="/topics/pillows">
                     <div className="topics">
                       <div className="flex flex-center topics_svg">
-                        <LuTentTree />
+                        <GiPillow />
                       </div>
                       <h3>Pillows</h3>
                     </div>
@@ -348,33 +349,33 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
                   <Link href="/topics/bedding">
                     <div className="topics">
                       <div className="flex flex-center topics_svg">
-                        <LuTent />
+                        <LuBedDouble />
                       </div>
                       <h3>Bedding</h3>
                     </div>
                   </Link>
-                  <Link href="/topics/">
+                  <Link href="/topics/comfort">
                     <div className="topics">
                       <div className="flex flex-center topics_svg">
-                        <GiCampingTent />
+                        <GiBamboo />
                       </div>
-                      <h3>Something else</h3>
+                      <h3>Comfort</h3>
                     </div>
                   </Link>
-                  <Link href="/topics/">
+                  <Link href="/topics/sleep">
                     <div className="topics">
                       <div className="flex flex-center topics_svg">
-                        <FaTent />
+                        <GiNightSleep />
                       </div>
-                      <h3>Something else</h3>
+                      <h3>Sleep</h3>
                     </div>
                   </Link>
-                  <Link href="/topics/">
+                  <Link href="/topics/quality">
                     <div className="topics">
                       <div className="flex flex-center topics_svg">
-                        <LuTrees />
+                        <TbStars />
                       </div>
-                      <h3>Something else</h3>
+                      <h3>Quality</h3>
                     </div>
                   </Link>
                 </div>

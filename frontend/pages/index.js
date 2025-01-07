@@ -214,28 +214,28 @@ export default function Home() {
                     <h3>Bedding</h3>
                   </div>
                 </Link>
-                <Link href="/topics/hitch">
+                <Link href="/topics/comfort">
                   <div className="topics">
                     <div className="flex flex-center topics_svg">
                       <GiCampingTent />
                     </div>
-                    <h3>Something else</h3>
+                    <h3>Comfort</h3>
                   </div>
                 </Link>
-                <Link href="/topics/popup">
+                <Link href="/topics/sleep">
                   <div className="topics">
                     <div className="flex flex-center topics_svg">
                       <FaTent />
                     </div>
-                    <h3>Something else</h3>
+                    <h3>Sleep</h3>
                   </div>
                 </Link>
-                <Link href="/topics/accessories">
+                <Link href="/topics/quality">
                   <div className="topics">
                     <div className="flex flex-center topics_svg">
                       <LuTrees />
                     </div>
-                    <h3>Something else</h3>
+                    <h3>Quality</h3>
                   </div>
                 </Link>
                 {/* Add other topics */}
@@ -244,16 +244,16 @@ export default function Home() {
             <div className="tags_sec mt-3">
               <h2>Tags</h2>
               <div className="tags_list">
-                <Link href="/tag/">#Bamboo</Link>
-                <Link href="/tag/">#EcoSleep</Link>
-                <Link href="/tag/">#Sustainable</Link>
-                <Link href="/tag/">#Pillows</Link>
-                <Link href="/tag/">#Bedding</Link>
-                <Link href="/tag/">#Comfort</Link>
-                <Link href="/tag/">#SleepWell</Link>
-                <Link href="/tag/">#GreenLiving</Link>
-                <Link href="/tag/">#Luxury</Link>
-                <Link href="/tag/">#Natural</Link>
+                <Link href="/tag/bamboo">#Bamboo</Link>
+                <Link href="/tag/bedding">#Bedding</Link>
+                <Link href="/tag/breathable">#Breathable</Link>
+                <Link href="/tag/comfort">#Comfort</Link>
+                <Link href="/tag/ecofriendly">#Ecofriendly</Link>
+                <Link href="/tag/luxury">#Luxury</Link>
+                <Link href="/tag/organic">#Organic</Link>
+                <Link href="/tag/pillows">#Pillows</Link>
+                <Link href="/tag/relaxation">#Relaxation</Link>
+                <Link href="/tag/sustainable">#Sustainable</Link>
 
                 {/* Add other tags */}
               </div>
