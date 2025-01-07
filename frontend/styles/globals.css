@@ -440,7 +440,7 @@ button {
   min-width: 375px;
   max-width: 375px;
   height: 100vh;
-  background-color: #303e38;
+  background-color: #4c4c4c;
   color: #fff;
   padding: 2rem;
   z-index: 9999;
@@ -969,7 +969,7 @@ button {
 }
 
 .dark .main_blog_section {
-  background-color: #333333; /* 303e38 */
+  background-color: #333333; /* 4c4c4c */
 }
 
 .leftblog_sec {
@@ -1749,7 +1749,7 @@ a.custom-button {
 }
 
 .dark .mailform {
-  background-color: #303e38;
+  background-color: #4c4c4c;
 }
 
 .mailform h2 {
@@ -1864,7 +1864,7 @@ a.custom-button {
 }
 
 .dark .blogcontent {
-  background-color: #303e38;
+  background-color: #4c4c4c;
   border: 1px solid #536b60;
   color: #e2e8f0;
 }
@@ -1967,8 +1967,8 @@ a.custom-button {
 }
 
 .dark .slug_profile_info {
-  border: none;
-  background-color: #303e38;
+  border: 1px solid #536b60;
+  background-color: #4c4c4c;
 }
 
 .slugprofile_sec {
@@ -2015,8 +2015,8 @@ a.custom-button {
 }
 
 .dark .slug_blog_links {
-  border: none;
-  background-color: #303e38;
+  border: 1px solid #536b60;
+  background-color: #4c4c4c;
 }
 
 .slug_blog_links_sec {
@@ -2211,7 +2211,7 @@ a.custom-button {
 }
 
 .dark .cate_blog {
-  background-color: #303e38;
+  background-color: #4c4c4c;
   box-shadow: 0 0 5px #222;
 }
 
