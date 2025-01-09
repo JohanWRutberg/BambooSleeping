@@ -1096,6 +1096,14 @@ button {
   background-color: #333333;
 }
 
+.blogaimg .logo {
+  content: url("/img/Logo/BambooSleeping_logo_black.png");
+}
+
+.dark .blogaimg .logo {
+  content: url("/img/Logo/BambooSleeping_logo_white.png");
+}
+
 .blogaimg img {
   width: 40px;
   object-fit: cover;
@@ -1577,6 +1585,14 @@ a:hover .st_icon_amazon,
   gap: 2rem; /* Add spacing between elements */
   max-width: 1200px; /* Limit max width for readability */
   margin: 0 auto; /* Center container */
+}
+
+.footer_logo .logo {
+  content: url("/img/Logo/BambooSleeping_logo_black.png");
+}
+
+.dark .footer_logo .logo {
+  content: url("/img/Logo/BambooSleeping_logo_white.png");
 }
 
 .footer_logo,

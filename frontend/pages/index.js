@@ -151,7 +151,7 @@ export default function Home() {
                           <p>{getFirstWords(blog.description)}</p>
                           <div className="blogauthor flex gap-1">
                             <div className="blogaimg">
-                              <img src="/img/Logo/BambooSleeping_Logo.png" alt="logo" />
+                              <img className="logo" src="/img/Logo/BambooSleeping_Logo_black.png" alt="logo" />
                             </div>
                             <div className="flex flex-col flex-left gap-05">
                               <h4>Bamboo Sleeping</h4>

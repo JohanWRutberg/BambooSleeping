@@ -8,7 +8,8 @@ export default async function handler(req, res) {
   const blogs = await Blog.find({}, { slug: 1, tags: 1, blogcategory: 1 });
 
   // Base URL for your site
-  const baseUrl = "https://www.bamboosleeping.com";
+  /*  const baseUrl = "https://www.bamboosleeping.com"; */
+  const baseUrl = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://www.bamboosleeping.com";
 
   // URLs to include in sitemap
   const staticPaths = [
