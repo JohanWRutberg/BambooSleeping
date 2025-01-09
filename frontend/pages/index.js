@@ -4,10 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { FaInstagram, FaPinterest, FaFacebook } from "react-icons/fa";
-import { LuTentTree, LuTent } from "react-icons/lu";
-import { FaTent } from "react-icons/fa6";
-import { GiCampingTent } from "react-icons/gi";
-import { LuTrees } from "react-icons/lu";
+import { LuBedDouble } from "react-icons/lu";
+import { GiPillow } from "react-icons/gi";
+import { TbStars } from "react-icons/tb";
+import { GiNightSleep, GiBamboo } from "react-icons/gi";
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1); // Page number
@@ -201,7 +201,7 @@ export default function Home() {
                 <Link href="/topics/pillows">
                   <div className="topics">
                     <div className="flex flex-center topics_svg">
-                      <LuTentTree />
+                      <GiPillow />
                     </div>
                     <h3>Pillows</h3>
                   </div>
@@ -209,7 +209,7 @@ export default function Home() {
                 <Link href="/topics/bedding">
                   <div className="topics">
                     <div className="flex flex-center topics_svg">
-                      <LuTent />
+                      <LuBedDouble />
                     </div>
                     <h3>Bedding</h3>
                   </div>
@@ -217,7 +217,7 @@ export default function Home() {
                 <Link href="/topics/comfort">
                   <div className="topics">
                     <div className="flex flex-center topics_svg">
-                      <GiCampingTent />
+                      <GiBamboo />
                     </div>
                     <h3>Comfort</h3>
                   </div>
@@ -225,7 +225,7 @@ export default function Home() {
                 <Link href="/topics/sleep">
                   <div className="topics">
                     <div className="flex flex-center topics_svg">
-                      <FaTent />
+                      <GiNightSleep />
                     </div>
                     <h3>Sleep</h3>
                   </div>
@@ -233,12 +233,11 @@ export default function Home() {
                 <Link href="/topics/quality">
                   <div className="topics">
                     <div className="flex flex-center topics_svg">
-                      <LuTrees />
+                      <TbStars />
                     </div>
                     <h3>Quality</h3>
                   </div>
                 </Link>
-                {/* Add other topics */}
               </div>
             </div>
             <div className="tags_sec mt-3">
