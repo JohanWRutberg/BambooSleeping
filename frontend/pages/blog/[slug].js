@@ -8,7 +8,6 @@ import { LuBedDouble } from "react-icons/lu";
 import { GiPillow } from "react-icons/gi";
 import { TbStars } from "react-icons/tb";
 import { GiNightSleep, GiBamboo } from "react-icons/gi";
-import { LuTrees } from "react-icons/lu";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { allyDark } from "react-syntax-highlighter/dist/cjs/styles/prism";

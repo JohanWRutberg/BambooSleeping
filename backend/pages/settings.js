@@ -1,5 +1,6 @@
 import Loading from "@/components/Loading";
 import { useSession, signOut } from "next-auth/react";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { IoSettingsOutline } from "react-icons/io5";
@@ -51,7 +52,7 @@ export default function Settings() {
 
           <div className="profilesettings">
             <div className="leftprofile_details flex" data-aos="fade-up">
-              <img src="/img/BambooSleeping.png" alt="coder" />
+              <Image src="/img/BambooSleeping.png" width={100} height={100} alt="coder" />
               <div className="w-100">
                 <div className="flex flex-sb flex-left mt-2">
                   <h2>Min Profil:</h2>

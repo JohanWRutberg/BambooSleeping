@@ -97,7 +97,13 @@ export default function Home() {
       </Head>
 
       <section className="header_data_section">
-        <img src="/img/BambooSleeping.jpeg" alt="Background" className="background-image opacity-90" />
+        <Image
+          src="/img/BambooSleeping.jpeg"
+          alt="Background"
+          height={1632}
+          width={2912}
+          className="background-image opacity-90"
+        />
         <div className="header-container flex flex-sb w-100">
           <div className="leftheader_info">
             <h1 data-aos="fade-right">
@@ -151,7 +157,13 @@ export default function Home() {
                           <p>{getFirstWords(blog.description)}</p>
                           <div className="blogauthor flex gap-1">
                             <div className="blogaimg">
-                              <img className="logo" src="/img/Logo/BambooSleeping_Logo_black.png" alt="logo" />
+                              <Image
+                                className="logo"
+                                src="/img/Logo/Bamboo_logo_twogreen.png"
+                                width={50}
+                                height={50}
+                                alt="logo"
+                              />
                             </div>
                             <div className="flex flex-col flex-left gap-05">
                               <h4>Bamboo Sleeping</h4>
