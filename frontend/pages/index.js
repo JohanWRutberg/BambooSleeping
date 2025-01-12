@@ -80,7 +80,7 @@ export default function Home() {
           property="og:description"
           content="BambooSleeping: Discover luxurious, eco-friendly bamboo pillows and bedding. Experience unmatched comfort, breathability, and sustainability in every product."
         />
-        <meta property="og:image" content="https://bamboosleeping.comnull" />
+        <meta property="og:image" content="https://bamboosleeping.com" />
 
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -91,14 +91,14 @@ export default function Home() {
           name="twitter:description"
           content="BambooSleeping: Discover luxurious, eco-friendly bamboo pillows and bedding. Experience unmatched comfort, breathability, and sustainability in every product."
         />
-        <meta name="twitter:image" content="https://bamboosleeping.comnull"></meta>
+        <meta name="twitter:image" content="https://bamboosleeping.com"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
 
       <section className="header_data_section">
         <Image
-          src="/img/BambooSleeping.jpeg"
+          src="/img/BambooSleeping_g.jpeg"
           alt="Background"
           height={1632}
           width={2912}
