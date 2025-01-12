@@ -5,12 +5,11 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { BsAmazon } from "react-icons/bs";
 import { LuBedDouble } from "react-icons/lu";
-import { GiPillow } from "react-icons/gi";
 import { TbStars } from "react-icons/tb";
-import { GiNightSleep, GiBamboo } from "react-icons/gi";
+import { GiPillow, GiNightSleep, GiBamboo } from "react-icons/gi";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { allyDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+/* import { allyDark } from "react-syntax-highlighter/dist/cjs/styles/prism"; */
 import { dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import remarkGfm from "remark-gfm";
 import Head from "next/head"; // Import the next/head module
