@@ -11,6 +11,7 @@ import { GiNightSleep, GiBamboo } from "react-icons/gi";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { allyDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import remarkGfm from "remark-gfm";
 import Head from "next/head"; // Import the next/head module
 
@@ -115,7 +116,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
       return (
         <div style={{ position: "relative" }}>
           <SyntaxHighlighter
-            style={allyDark}
+            style={dark}
             language={match[1]}
             PreTag="pre"
             {...props}
