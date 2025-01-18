@@ -1870,7 +1870,7 @@ a.custom-button {
 .blogcontent {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #fff;
+  background-color: #e9f5ec;
   border: 1px solid #c6c6cc;
   border-radius: 20px;
   margin-top: 3rem;
@@ -1901,7 +1901,19 @@ a.custom-button {
 .blogcontent a {
   font-size: 18px;
   font-weight: 600;
-  color: #f68f3d;
+  color: #4c4c4c;
+}
+
+.blogcontent a:hover {
+  color: #888;
+}
+
+.dark .blogcontent a {
+  color: #e2e8f0;
+}
+
+.dark .blogcontent a:hover {
+  color: #888;
 }
 
 .blogcontent h2 {
