@@ -144,7 +144,7 @@ export default function CategoryPage({ initialData, category }) {
                             <Image src="/img/Logo/Bamboo_logo_twogreen.png" height={50} width={50} alt="logo" />
                           </div>
                           <div className="flex flex-col flex-left gap-05">
-                            <h5>TopGear Tents</h5>
+                            <h5>Bamboo Sleeping</h5>
                             <span>
                               {new Date(item.createdAt).toLocaleDateString("en-US", {
                                 month: "long",

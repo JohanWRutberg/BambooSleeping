@@ -73,7 +73,7 @@ export default function Document() {
         <meta property="og:image" content={`${siteUrl}/logo_1250_1250.png`} />
         <meta property="og:image:width" content="1250" />
         <meta property="og:image:height" content="1250" />
-        <meta property="og:site_name" content="Beat MasterMind" />
+        <meta property="og:site_name" content="Bamboo Sleeping" />
         <meta name="twitter:image" content={`${siteUrl}/logo_1250_1250.png`} />
 
         {/* Preconnect for Fonts */}

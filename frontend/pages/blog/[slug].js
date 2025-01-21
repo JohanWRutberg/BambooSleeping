@@ -203,7 +203,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
           <div className="topslug_titles">
             <h1 className="slugtitle">{blog.title || "Untitled Post"}</h1>
             <h5>
-              By <span>TopGear Tents</span>.{" "}
+              By <span>Bamboo Sleeping</span>.{" "}
               {blog.createdAt
                 ? new Date(blog.createdAt).toLocaleDateString("en-US", {
                     month: "long",

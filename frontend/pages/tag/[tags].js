@@ -136,7 +136,7 @@ export default function CategoryPage({ initialData, tag }) {
                             <Image src="/img/BambooSleeping.png" width={50} height={50} />
                           </div>
                           <div className="flex flex-col flex-left gap-05">
-                            <h4>TopGear Tents</h4>
+                            <h4>Bamboo Sleeping</h4>
                             <span>
                               {new Date(item.createdAt).toLocaleDateString("en-US", {
                                 month: "long",
