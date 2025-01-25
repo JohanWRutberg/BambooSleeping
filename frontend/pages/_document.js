@@ -60,7 +60,7 @@ export default function Document() {
         <meta name="theme-color" content="#ffffff" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href={siteUrl} />
+        {/* <link rel="canonical" href={siteUrl} /> */}
 
         {/* Open Graph Meta Tags */}
         <meta property="og:locale" content="en_US" />
@@ -99,7 +99,7 @@ export default function Document() {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://www.bamboosleeping.com" />
+        {/* <link rel="canonical" href="https://www.bamboosleeping.com" /> */}
       </Head>
 
       <body>
