@@ -11,7 +11,7 @@ export default function Footer() {
           </Link>
           <h4>&copy; 2024 All Rights Reserved.</h4>
           <h3>
-            Coooded By <span>@JRcoder</span>
+            Coded By <span>@JRcoder</span>
           </h3>
         </div>
         <div className="q_links">
