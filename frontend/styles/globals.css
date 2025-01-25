@@ -315,7 +315,7 @@ button {
 
 .header_sec {
   position: relative;
-  background-color: #e9f5ec; /* Light mode background */
+  background-color: #faf9f6; /* Light mode background */
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), /* Subtle large shadow */ 0 4px 6px -2px rgba(0, 0, 0, 0.1),
     /* Secondary soft shadow */ 0 0 15px 5px rgba(0, 0, 0, 0.05); /* Outer glow effect */
   border-bottom: 2px solid rgba(0, 0, 0, 0.15); /* Subtle separator */
@@ -964,7 +964,7 @@ button {
 
 .main_blog_section {
   position: relative;
-  background-color: #faf9f6;
+  background-color: #e9f5ec;
   padding: 3rem 0;
 }
 
@@ -1007,7 +1007,7 @@ button {
 .blog {
   display: flex;
   width: 100%;
-  background-color: #e9f5ec;
+  background-color: #faf9f6;
   align-items: center;
   max-width: 1000px;
   gap: 2rem;
@@ -1225,7 +1225,7 @@ button {
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: #e9f5ec;
+  background-color: #faf9f6;
   border: 1px solid #d1d1d1;
   border-radius: 20px;
   overflow: hidden;
@@ -1293,7 +1293,7 @@ button {
   justify-content: space-evenly; /* Evenly distribute items horizontally */
   align-items: center; /* Align items vertically in the center */
   gap: 10px; /* Spacing between items */
-  background-color: #e9f5ec;
+  background-color: #faf9f6;
   border: 1px solid #d4d4d4;
   border-radius: 10px;
   padding: 2rem 1.5rem;
@@ -1336,7 +1336,7 @@ button {
 
 .talk_sec {
   width: 100%;
-  background-color: #e9f5ec;
+  background-color: #faf9f6;
   border: 1px solid #d4d4d4;
   border-radius: 10px;
   padding: 2rem 3rem;
@@ -1553,7 +1553,7 @@ a:hover .st_icon_amazon,
 
 .footer {
   padding: 4rem 1rem; /* Initial padding */
-  background-color: #e9f5ec; /* Unified background color for dark mode */
+  background-color: #faf9f6; /* Unified background color for dark mode */
   color: #818a94; /* Default text color */
   position: relative;
   width: 100%;
@@ -1751,7 +1751,7 @@ a.custom-button {
 /* ================================================== */
 
 .mailform {
-  background-color: #ffffff;
+  background-color: #faf9f6;
 }
 
 .dark .mailform {
@@ -1768,7 +1768,7 @@ a.custom-button {
 }
 
 .mailform button {
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 10px 30px;
   color: #ff0818;
 }
@@ -1784,7 +1784,7 @@ a.custom-button {
 .slugpage {
   position: relative;
   padding-top: 5rem;
-  background-color: #faf9f6;
+  background-color: #e9f5ec;
   font-family: "Nunito", sans-serif;
 }
 
@@ -1860,7 +1860,7 @@ a.custom-button {
 .blogcontent {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #e9f5ec;
+  background-color: #faf9f6;
   border: 1px solid #c6c6cc;
   border-radius: 20px;
   margin-top: 3rem;
@@ -1975,7 +1975,7 @@ a.custom-button {
 .slug_profile_info {
   position: relative;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #faf9f6;
   border: 1px solid #cdcdcd;
   border-radius: 10px;
   overflow: hidden;
@@ -2022,7 +2022,7 @@ a.custom-button {
 .slug_blog_links {
   position: relative;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #e9f5ec;
   border: 1px solid #cdcdcd;
   border-radius: 10px;
   overflow: hidden;
@@ -2169,7 +2169,7 @@ a.custom-button {
   width: 100%;
   height: auto;
   padding: 5rem 0;
-  background-color: #faf9f6;
+  background-color: #e9f5ec;
 }
 
 .dark .category_slug {
@@ -2218,7 +2218,7 @@ a.custom-button {
   margin-bottom: 3rem;
   padding: 0.5rem;
   transition: 0.3s ease-in-out;
-  background-color: #ffffff;
+  background-color: #faf9f6;
 }
 
 .cate_blog a img {
