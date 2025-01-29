@@ -1,8 +1,9 @@
+"use client";
 import axios from "axios";
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 function capitalizeFirstLetter(str) {
@@ -10,45 +11,50 @@ function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
-export default function CategoryPage({ initialData, tag }) {
-  const [loading, setLoading] = useState(!initialData);
-  const [currentPage, setCurrentPage] = useState(1); // Page number
-  const [perPage] = useState(6); // Number of blogs per page
-  const [blog, setBlog] = useState(initialData || []);
+async function fetchBlogData(tags) {
+  try {
+    const res = await axios.get(`/api/getblog?tags=${tags}`);
+    return res.data;
+  } catch (error) {
+    console.error("Error fetching blog data:", error);
+    return [];
+  }
+}
+
+export default function CategoryPage({ params }) {
+  const { tags } = params; // Extract the 'tags' directly from the props
   const router = useRouter();
 
-  const { tags } = router.query;
+  const [loading, setLoading] = useState(true);
+  const [blog, setBlog] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1); // Page number
+  const [perPage] = useState(6); // Number of blogs per page
 
   useEffect(() => {
-    // Function to fetch blog data
-    const fetchBlogdata = async () => {
-      try {
-        const res = await axios.get(`/api/getblog?tags=${tags}`);
-        const alldata = res.data;
-        setBlog(alldata);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching blog data", error);
-        setLoading(false);
-      }
+    if (!tags) {
+      console.error("Tags are undefined");
+      router.push("/404"); // Redirect to 404 page if tags are missing
+      return;
+    }
+
+    const fetchBlogDataAndSetState = async () => {
+      setLoading(true);
+      const fetchedData = await fetchBlogData(tags);
+      setBlog(fetchedData);
+      setLoading(false);
     };
 
-    // Fetch blog data only if tags exists
-    if (tags) {
-      fetchBlogdata();
-    } else {
-      router.push("/404");
-    }
-  }, [tags]);
+    fetchBlogDataAndSetState();
+  }, [tags, router]);
 
-  // Function to handle page change
+  // Handle page changes
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
   const indexOfLastblog = currentPage * perPage;
   const indexOfFirstblog = indexOfLastblog - perPage;
-  const currentBlogs = blog.slice(indexOfFirstblog, indexOfFirstblog + perPage);
+  const currentBlogs = blog.slice(indexOfFirstblog, indexOfLastblog);
 
   const allblog = blog.length;
   const pageNumbers = [];
@@ -74,39 +80,36 @@ export default function CategoryPage({ initialData, tag }) {
     if (!text) return "";
     const cleanedText = removeSpecialCharacters(text);
     const words = cleanedText.split(" ");
-    return words.slice(0, 10).join(" ") + "...";
+    return words.slice(0, 20).join(" ") + "...";
   }
 
   return (
     <>
       <Head>
-        <title>{tag ? `${capitalizeFirstLetter(tag)} | Bamboo Sleeping` : "Bamboo Sleeping"}</title>
-        <meta name="keywords" content={tag || "Tags on Bamboo Sleeping"} />
-        <meta property="og:title" content={tag ? capitalizeFirstLetter(tag) : "Tags on Bamboo Sleeping"} />
+        <title>{tags ? `${capitalizeFirstLetter(tags)} | Bamboo Sleeping` : "Bamboo Sleeping"}</title>
+        <meta name="keywords" content={tags || "Tags on Bamboo Sleeping"} />
+        <meta property="og:title" content={tags ? capitalizeFirstLetter(tags) : "Tags on Bamboo Sleeping"} />
         <meta
           property="og:description"
-          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Bamboo Sleeping"}
+          content={publishedblogs.length ? publishedblogs[0].description.slice(0, 150) : "Blog post on Bamboo Sleeping"}
         />
-        <meta property="og:image" content={blog.image || "/default-image.png"} />
+        <meta property="og:image" content={publishedblogs[0]?.image || "/default-image.png"} />
         <meta property="og:url" content={`https://www.bamboosleeping.com${router.asPath}`} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={tag ? capitalizeFirstLetter(tag) : "Tags on Bamboo Sleeping"} />
+        <meta name="twitter:title" content={tags ? capitalizeFirstLetter(tags) : "Tags on Bamboo Sleeping"} />
         <meta
           name="twitter:description"
-          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Bamboo Sleeping"}
+          content={publishedblogs.length ? publishedblogs[0].description.slice(0, 150) : "Blog post on Bamboo Sleeping"}
         />
-        <meta name="twitter:image" content={blog.image || "/default-image.png"} />
+        <meta name="twitter:image" content={publishedblogs[0]?.image || "/default-image.png"} />
       </Head>
       <div className="blogpage">
         <div className="category_slug">
           <div className="container">
             <div className="category_title">
               <div className="flex gap-1">
-                <h1>
-                  {/* Tags:  */}
-                  {loading ? <div>Loading... </div> : tag}
-                </h1>
-                <span>{loading ? <div>0</div> : publishedblogs.filter((blog) => blog.tags).length}</span>
+                <h1>{loading ? "Loading..." : capitalizeFirstLetter(tags)}</h1>
+                <span>{loading ? 0 : publishedblogs.filter((blog) => blog.tags).length}</span>
               </div>
             </div>
             <div className="category_blogs mt-3">
@@ -179,7 +182,7 @@ export default function CategoryPage({ initialData, tag }) {
 }
 
 // Fetching data at the server side
-export async function getServerSideProps(context) {
+/* export async function getServerSideProps(context) {
   const { tags } = context.params;
   let initialData = [];
 
@@ -197,3 +200,4 @@ export async function getServerSideProps(context) {
     }
   };
 }
+ */

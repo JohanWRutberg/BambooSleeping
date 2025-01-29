@@ -1,14 +1,14 @@
+"use client";
 import useFetchData from "@/hooks/useFetchData";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { FaPinterest, FaFacebook } from "react-icons/fa";
+import { FaInstagram, FaPinterestP } from "react-icons/fa";
 import { LuBedDouble } from "react-icons/lu";
 import { GiPillow } from "react-icons/gi";
 import { TbStars } from "react-icons/tb";
 import { GiNightSleep, GiBamboo } from "react-icons/gi";
-import { FaPinterestP, FaInstagram } from "react-icons/fa6";
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1); // Page number
@@ -58,7 +58,7 @@ export default function Home() {
     if (!text) return "";
     const cleanedText = removeSpecialCharacters(text);
     const words = cleanedText.split(" ");
-    return words.slice(0, 30).join(" ") + "...";
+    return words.slice(0, 15).join(" ") + "...";
   }
 
   return (
