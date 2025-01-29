@@ -1871,7 +1871,7 @@ a.custom-button {
 
 .dark .blogcontent {
   background-color: #4c4c4c;
-  border: 1px solid #536b60;
+  border: none;
   color: #e2e8f0;
 }
 
@@ -1985,8 +1985,26 @@ a.custom-button {
 }
 
 .dark .slug_profile_info {
-  border: 1px solid #536b60;
+  border: none;
   background-color: #4c4c4c;
+}
+
+.slug_profile_info a {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.dark .slug_profile_info a {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.slug_profile_info a:hover {
+  color: #000; /* Change text color when hovered */
+}
+
+.dark .slug_profile_info a:hover {
+  color: #fff; /* Change text color when hovered */
 }
 
 .slugprofile_sec {
@@ -2033,7 +2051,7 @@ a.custom-button {
 }
 
 .dark .slug_blog_links {
-  border: 1px solid #536b60;
+  border: none;
   background-color: #4c4c4c;
 }
 
