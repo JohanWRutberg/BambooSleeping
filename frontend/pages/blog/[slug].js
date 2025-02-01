@@ -1,16 +1,17 @@
-"use client";
 import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
 import { BsAmazon } from "react-icons/bs";
 import { LuBedDouble } from "react-icons/lu";
+import { GiPillow } from "react-icons/gi";
 import { TbStars } from "react-icons/tb";
-import { GiPillow, GiNightSleep, GiBamboo } from "react-icons/gi";
+import { GiNightSleep, GiBamboo } from "react-icons/gi";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { allyDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import remarkGfm from "remark-gfm";
 import Head from "next/head"; // Import the next/head module
 
@@ -23,106 +24,90 @@ function extractFirstImageUrl(markdownContent) {
   return match ? match[1] : null;
 }
 
-function extractAmazonLinks(markdownContent) {
-  if (!markdownContent || typeof markdownContent !== "string") {
-    return [];
-  }
-  const regex = /\[(.*?)\]\((https:\/\/amzn\.to\/.*?)\)/g;
-  const links = [];
-  let match;
-  while ((match = regex.exec(markdownContent)) !== null) {
-    links.push({ href: match[2], alt: match[1] });
-  }
-  return links;
-}
+// Fetch the blog data on the server side
+export async function getServerSideProps(context) {
+  const { slug } = context.params;
 
-export default function BlogPage() {
-  const { slug } = useParams(); // Extract the 'slug' parameter from the URL
-  const router = useRouter(); // Use for navigation
+  try {
+    // Fetch the specific blog post based on the slug
+    const res = await axios.get(`${process.env.NEXT_WEBSITE_URL}/api/getblog?slug=${slug}`);
+    const alldata = res.data;
 
-  const [blog, setBlog] = useState({});
-  const [linkDetails, setLinkDetails] = useState([]);
-  const [blogPostLinks, setBlogPostLinks] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (!slug) {
-      console.error("Slug is undefined");
-      router.push("/404"); // Redirect to 404 page if slug is undefined
-      return;
+    if (!alldata || alldata.length === 0) {
+      // If no blog found, return notFound to show 404 page
+      return { notFound: true };
     }
 
-    const fetchBlogData = async () => {
-      try {
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/getblog?slug=${slug}`);
-        const alldata = res.data;
+    const firstImageUrl = extractFirstImageUrl(alldata[0].description);
+    const blog = { ...alldata[0], image: firstImageUrl };
 
-        if (!alldata || alldata.length === 0) {
-          console.error("No blog data found");
-          router.push("/404"); // Redirect to 404 page if no data is found
-          return;
-        }
+    // Fetch all blog posts for backlinks
+    const resAllBlogs = await axios.get(`${process.env.NEXT_WEBSITE_URL}/api/getblog`);
+    const blogPosts = resAllBlogs.data;
+    const blogPostLinks = blogPosts.map((post) => ({
+      href: `/blog/${post.slug}`,
+      alt: post.title,
+      image: extractFirstImageUrl(post.description),
+      status: post.status,
+      createdAt: post.createdAt
+    }));
 
-        const firstImageUrl = extractFirstImageUrl(alldata[0].description);
-        const blogData = { ...alldata[0], image: firstImageUrl };
-        setBlog(blogData);
-
-        // Extract Amazon links from the blog description
-        const amazonLinks = extractAmazonLinks(blogData.description);
-        setLinkDetails(amazonLinks);
-
-        // Fetch all blog posts for the latest blog list
-        const allBlogsRes = await axios.get(`${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/getblog`);
-        const allBlogs = allBlogsRes.data;
-
-        const sortedBlogs = allBlogs
-          .filter((post) => post.status === "publish")
-          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-          .map((post) => ({
-            href: `/blog/${post.slug}`,
-            alt: post.title,
-            image: extractFirstImageUrl(post.description),
-            status: post.status,
-            createdAt: post.createdAt
-          }));
-
-        setBlogPostLinks(sortedBlogs);
-        setLoading(false); // Set loading to false when data is fetched
-      } catch (error) {
-        console.error("Error fetching blog:", error);
-        router.push("/404"); // Redirect to 404 page in case of an error
+    return {
+      props: {
+        blog,
+        blogPostLinks
       }
     };
+  } catch (error) {
+    console.error("Error fetching blog", error);
+    return { notFound: true };
+  }
+}
 
-    fetchBlogData();
-  }, [slug, router]);
+export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
+  const router = useRouter();
 
-  if (loading) {
+  // Handle the loading state if the page is not yet generated
+  if (router.isFallback) {
     return <div>Loading...</div>;
   }
 
-  if (!blog) {
-    return <div>Blog not found</div>;
-  }
-
-  const calculateReadingTime = (text) => {
+  // Function to calculate reading time
+  function calculateReadingTime(text) {
     const wordsPerMinute = 200;
     const words = text.trim().split(/\s+/).length;
     return Math.ceil(words / wordsPerMinute);
-  };
+  }
 
   const readingTime = blog.description ? calculateReadingTime(blog.description) : 1;
 
+  // Collect Amazon affiliate links
+  const [linkDetails, setLinkDetails] = useState([]);
+  useEffect(() => {
+    if (blog.description) {
+      const links = document.querySelectorAll(".observed-link");
+      const details = Array.from(links)
+        .map((link) => ({
+          alt: link.getAttribute("alt") || link.href,
+          href: link.href
+        }))
+        .filter((link) => link.href.includes("https://amzn"));
+      setLinkDetails(details);
+    }
+  }, [blog]);
+
+  // Markdown code highlighter
   const Code = ({ node, inline, className, children, ...props }) => {
     const match = /language-(\w+)/.exec(className || "");
-    const [copied, setCopied] = useState(false);
 
+    const [copied, setCopied] = useState(false);
+    // Copy code function
     const handleCopy = () => {
       navigator.clipboard.writeText(children);
       setCopied(true);
       setTimeout(() => {
         setCopied(false);
-      }, 3000);
+      }, 3000); // 3 seconds
     };
 
     if (inline) {
@@ -131,7 +116,7 @@ export default function BlogPage() {
       return (
         <div style={{ position: "relative" }}>
           <SyntaxHighlighter
-            style={dracula}
+            style={dark}
             language={match[1]}
             PreTag="pre"
             {...props}
@@ -171,28 +156,9 @@ export default function BlogPage() {
     }
   };
 
-  const MarkdownLink = ({ href, children }) => {
-    const isAmazonLink = href.startsWith("https://amzn");
-    return (
-      <a
-        href={href}
-        className={`observed-link ${isAmazonLink ? "amazon-link" : ""}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {isAmazonLink && (
-          <span className="st_icon_amazon">
-            <BsAmazon />
-          </span>
-        )}
-        {children}
-      </a>
-    );
-  };
-
   return (
     <>
-      <Head>
+      <Head key={router.asPath}>
         <title>{`${blog.title || "Blog Post"} | Bamboo Sleeping`}</title>
         <meta
           name="description"
@@ -238,7 +204,7 @@ export default function BlogPage() {
           <div className="topslug_titles">
             <h1 className="slugtitle">{blog.title || "Untitled Post"}</h1>
             <h5>
-              By <span>Bamboo Sleeping</span>.{" "}
+              By <span>TopGear Tents</span>.{" "}
               {blog.createdAt
                 ? new Date(blog.createdAt).toLocaleDateString("en-US", {
                     month: "long",
@@ -256,7 +222,25 @@ export default function BlogPage() {
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
                   components={{
-                    a: MarkdownLink,
+                    a: ({ href, children }) => {
+                      const isAmazonLink = href.startsWith("https://amzn");
+                      return (
+                        <a
+                          href={href}
+                          className={`observed-link ${isAmazonLink ? "amazon-link" : ""}`}
+                          alt={children}
+                          target={isAmazonLink ? "_blank" : "_self"}
+                          rel={isAmazonLink ? "noopener noreferrer" : undefined}
+                        >
+                          {isAmazonLink && (
+                            <span className="st_icon_amazon">
+                              <BsAmazon />
+                            </span>
+                          )}
+                          {children}
+                        </a>
+                      );
+                    },
                     code: Code
                   }}
                 >
@@ -285,11 +269,30 @@ export default function BlogPage() {
                     <ul>
                       {linkDetails.map((link, index) => (
                         <li key={index}>
-                          <MarkdownLink href={link.href}>{link.alt}</MarkdownLink>
+                          <Link href={link.href} legacyBehavior>
+                            <a className="flex flex-left" target="_blank" rel="noopener noreferrer">
+                              <div className="social_talks">
+                                <div className="st_icon_amazon">
+                                  <BsAmazon />
+                                </div>
+                              </div>
+                              <span className="link-alt">{link.alt}</span>
+                            </a>
+                          </Link>
                         </li>
                       ))}
                     </ul>
                   </div>
+                </div>
+                <div className="slug_aff_img mt-15">
+                  <p>
+                    As an Amazon Associate, we earn from qualifying purchases. This means that if you click on a link to
+                    an Amazon product on this site and make a purchase, we may receive a commission at no additional
+                    cost to you. This helps support the site and allows us to continue providing useful content.
+                    <br />
+                    <br />
+                    Thank you for your support!
+                  </p>
                 </div>
               </div>
               <div className="topics_sec">

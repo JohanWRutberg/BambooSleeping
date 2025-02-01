@@ -9,14 +9,14 @@ export default async function handler(req, res) {
 
   // Base URL for your site
   /*  const baseUrl = "https://www.bamboosleeping.com"; */
-  const baseUrl = "https://www.bamboosleeping.com";
+  const baseUrl = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://www.bamboosleeping.com";
 
   // URLs to include in sitemap
   const staticPaths = [
     `${baseUrl}/`,
     `${baseUrl}/blog/`,
-    /* `${baseUrl}/tag/`,
-    `${baseUrl}/topics/`, */
+    `${baseUrl}/tag/`,
+    `${baseUrl}/topics/`,
     `${baseUrl}/contact`, // Add static URL for contact page
     `${baseUrl}/disclaimer`, // Add static URL for disclaimer page
     `${baseUrl}/about` // Add static URL for about page

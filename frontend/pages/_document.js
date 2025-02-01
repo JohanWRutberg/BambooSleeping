@@ -21,10 +21,10 @@ export default function Document() {
         {/* Google Tag Manager */}
         <Script id="gtm" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER}');`}
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER}');`}
         </Script>
 
         {/* Google Analytics */}
@@ -47,34 +47,28 @@ export default function Document() {
         {/* Essential Meta Tags */}
         <meta charSet="UTF-8" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        {/* <meta name="viewport" content="width=device-width, initial-scale=1.0" /> */}
         <meta name="author" content="Bamboo Sleeping" />
         <meta
           name="description"
           content="BambooSleeping: Discover luxurious, eco-friendly bamboo pillows and bedding. Experience unmatched comfort, breathability, and sustainability in every product."
         />
-        <meta
-          name="keywords"
-          content="bamboo, pillow, bedding, comfort, breathability, sustainability, eco-friendly, luxurious"
-        />
-        {/* <meta name="viewport" content="width=device-width, initial-scale=1.0" /> */}
-        <meta name="theme-color" content="#ffffff" />
-
-        {/* Canonical URL */}
-        {/* <link rel="canonical" href={siteUrl} /> */}
 
         {/* Open Graph Meta Tags */}
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="BambooSleeping: Luxurious, eco-friendly bamboo pillows and bedding." />
+        <meta
+          property="og:title"
+          content="BambooSleeping: Discover luxurious, eco-friendly bamboo pillows and bedding. Experience unmatched comfort, breathability, and sustainability in every product."
+        />
         <meta
           property="og:description"
           content="BambooSleeping: Discover luxurious, eco-friendly bamboo pillows and bedding. Experience unmatched comfort, breathability, and sustainability in every product."
         />
-        <meta property="og:image" content={`${siteUrl}/logo_1250_1250.png`} />
-        <meta property="og:image:width" content="1250" />
-        <meta property="og:image:height" content="1250" />
-        <meta property="og:site_name" content="Bamboo Sleeping" />
-        <meta name="twitter:image" content={`${siteUrl}/logo_1250_1250.png`} />
+        <meta property="og:image" content="https://www.bamboosleeping.com/og-image.jpg" />
+        <meta property="og:image:width" content="920" />
+        <meta property="og:image:height" content="470" />
+        <meta property="og:site_name" content="TopGear Tents" />
 
         {/* Preconnect for Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -84,22 +78,11 @@ export default function Document() {
           rel="stylesheet"
         />
 
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
-          />
-        </noscript>
-
         {/* Favicon */}
-        <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
-        <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32" />
-        <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/favicon.png" />
 
         {/* Canonical URL */}
-        {/* <link rel="canonical" href="https://www.bamboosleeping.com" /> */}
+        <link rel="canonical" href="https://www.bamboosleeping.com" />
       </Head>
 
       <body>

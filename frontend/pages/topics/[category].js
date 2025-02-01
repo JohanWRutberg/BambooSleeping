@@ -1,51 +1,39 @@
-"use client";
 import axios from "axios";
-import Link from "next/link";
-import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
-function capitalizeFirstLetter(str) {
-  if (!str) return "";
-  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-}
-
-async function fetchCategoryData(category) {
-  try {
-    const res = await axios.get(`/api/getblog?blogcategory=${category}`);
-    return res.data;
-  } catch (error) {
-    console.error("Error fetching category data", error);
-    return [];
-  }
-}
-
-export default function CategoryPage({ params }) {
-  const { category } = params; // Extract the category from params
-  const [loading, setLoading] = useState(true);
-  const [blog, setBlog] = useState([]);
+export default function CategoryPage({ initialData, category }) {
+  const [loading, setLoading] = useState(!initialData);
   const [currentPage, setCurrentPage] = useState(1); // Page number
   const [perPage] = useState(7); // Number of blogs per page
+  const [blog, setBlog] = useState(initialData || []);
   const router = useRouter();
 
   useEffect(() => {
-    // Fetch blog data only if category exists
-    const fetchBlogDataAndSetState = async () => {
-      if (category) {
-        setLoading(true);
-        const fetchedData = await fetchCategoryData(category);
-        setBlog(fetchedData);
+    // Function to fetch blog data
+    const fetchBlogdata = async () => {
+      try {
+        const res = await axios.get(`/api/getblog?blogcategory=${category}`);
+        const alldata = res.data;
+        setBlog(alldata);
         setLoading(false);
-      } else {
-        router.push("/404");
+      } catch (error) {
+        console.error("Error fetching blog data", error);
+        setLoading(false);
       }
     };
 
-    fetchBlogDataAndSetState();
-  }, [category, router]);
+    // Fetch blog data only if category exists
+    if (category) {
+      fetchBlogdata();
+    } else {
+      router.push("/404");
+    }
+  }, [category]);
 
-  // Handle page changes
+  // Function to handle page change
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -55,6 +43,7 @@ export default function CategoryPage({ params }) {
   const currentBlogs = blog.slice(indexOfFirstblog, indexOfLastblog);
 
   const allblog = blog.length;
+
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(allblog / perPage); i++) {
@@ -86,32 +75,13 @@ export default function CategoryPage({ params }) {
 
   return (
     <>
-      <Head>
-        <title>{category ? `${capitalizeFirstLetter(category)} | Bamboo Sleeping` : "Bamboo Sleeping"}</title>
-        <meta name="keywords" content={category || "Topic on Bamboo Sleeping"} />
-        <meta property="og:title" content={category ? capitalizeFirstLetter(category) : "Topic on Bamboo Sleeping"} />
-        <meta
-          property="og:description"
-          content={publishedblogs.length ? publishedblogs[0].description.slice(0, 150) : "Blog post on Bamboo Sleeping"}
-        />
-        <meta property="og:image" content={publishedblogs[0]?.image || "/default-image.png"} />
-        <meta property="og:url" content={`https://www.bamboosleeping.com${router.asPath}`} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={category ? capitalizeFirstLetter(category) : "Topic on Bamboo Sleeping"} />
-        <meta
-          name="twitter:description"
-          content={publishedblogs.length ? publishedblogs[0].description.slice(0, 150) : "Blog post on Bamboo Sleeping"}
-        />
-        <meta name="twitter:image" content={publishedblogs[0]?.image || "/default-image.png"} />
-      </Head>
-
       <div className="blogpage">
         <div className="category_slug">
           <div className="container">
             <div className="category_title">
               <div className="flex gap-1">
-                <h1>
-                  {/* Categories:{" "} */}
+                <h2>
+                  Categories:{" "}
                   {loading ? (
                     <div>Loading...</div>
                   ) : publishedblogs.length ? (
@@ -119,7 +89,7 @@ export default function CategoryPage({ params }) {
                   ) : (
                     category
                   )}
-                </h1>
+                </h2>
                 <span>{loading ? <div>0</div> : publishedblogs.filter((blog) => blog.blogcategory).length}</span>
               </div>
             </div>
@@ -150,7 +120,7 @@ export default function CategoryPage({ params }) {
                             <Image src="/img/Logo/Bamboo_logo_twogreen.png" height={50} width={50} alt="logo" />
                           </div>
                           <div className="flex flex-col flex-left gap-05">
-                            <h5>Bamboo Sleeping</h5>
+                            <h5>TopGear Tents</h5>
                             <span>
                               {new Date(item.createdAt).toLocaleDateString("en-US", {
                                 month: "long",
@@ -195,7 +165,7 @@ export default function CategoryPage({ params }) {
 }
 
 // Fetching data at the server side
-/* export async function getServerSideProps(context) {
+export async function getServerSideProps(context) {
   const { category } = context.params;
   let initialData = [];
 
@@ -212,4 +182,4 @@ export default function CategoryPage({ params }) {
       category
     }
   };
-} */
+}

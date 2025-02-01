@@ -1,4 +1,3 @@
-"use client";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -6,23 +5,23 @@ export default function DisclaimerPage() {
   return (
     <>
       <Head>
-        <title>Disclaimer | Bamboo Sleeping</title>
-        <meta name="description" content="Learn more about Bamboo Sleeping and our mission." />
+        <title>Disclaimer | TopGear tents</title>
+        <meta name="description" content="Learn more about TopGear Tents and our mission." />
 
         {/* Open Graph Metadata */}
-        <meta property="og:title" content="Disclaimer | Bamboo Sleeping" />
+        <meta property="og:title" content="Disclaimer | TopGear Tents" />
         <meta
           property="og:description"
-          content="BambooSleeping disclaimer: Discover luxurious, eco-friendly bamboo pillows and bedding."
+          content="Explore our Blog about Roftop tents for all kinds of vehicle. Your indoor and outdoor adventure!"
         />
         <meta property="og:image" content="/img/disclaimer-og-image.jpg" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card Metadata */}
-        <meta name="twitter:title" content="Disclaimer | Bamboo Sleeping" />
+        <meta name="twitter:title" content="Disclaimer | TopGear Tents" />
         <meta
           name="twitter:description"
-          content="BambooSleeping disclaimer: Discover luxurious, eco-friendly bamboo pillows and bedding."
+          content="Explore our Blog about Roftop tents for all kinds of vehicle. Your indoor and outdoor adventure!"
         />
         <meta name="twitter:image" content="/img/disclaimer-og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -39,14 +38,14 @@ export default function DisclaimerPage() {
                   This means if you click on an affiliate link and buy something, we get a commission at no extra cost
                   to you. The price is the same whether you use an affiliate link or not.
                   <h2>What are affiliate links?</h2>
-                  When you click an affiliate link on BambooSleeping.com and buy something, you buy it directly from the
-                  seller (not from Bamboo Sleeping). We may get a small commission from Amazon or other companies for
+                  When you click an affiliate link on TopGear Tents.com and buy something, you buy it directly from the
+                  seller (not from TopGear Tents). We may get a small commission from Amazon or other companies for
                   sending customers to their websites. The price is the same for you whether you use an affiliate link
                   or not.
                   <br />
                   Clicking an affiliate link doesn’t change the price or anything else for you.{" "}
                   <h3>Amazon affiliate links</h3>
-                  BambooSleeping.com is part of the Amazon Services LLC Associates Program, an affiliate advertising
+                  TopGear Tents.com is part of the Amazon Services LLC Associates Program, an affiliate advertising
                   program designed to let sites earn fees by linking to Amazon.com and related sites.
                   <br />
                   If you click a product affiliate link and buy the product, we get a percentage of the sale or some
@@ -62,11 +61,11 @@ export default function DisclaimerPage() {
                   These rules make sure readers know if a blogger or publisher is sponsored or partnered with a company.
                   Readers need to know if the publisher makes money from sharing a link or product. Following FTC
                   guidelines, please assume this about links and posts on this site: Some or all links on
-                  BambooSleeping.com are affiliate links, which means we earn a small commission from sales.
+                  TopGearTent.com are affiliate links, which means we earn a small commission from sales.
                   <br />
                   <br />
-                  <h2>AI-images</h2>
-                  <h3>Usage of images.</h3>
+                  <h1>AI-images</h1>
+                  <h2>Usage of images.</h2>
                   Some of the images featured on this blog may have been generated using artificial intelligence (AI)
                   tools. These AI-generated images are used to enhance the content and provide visual representation.
                   While efforts are made to ensure that these images are accurate and appropriate, they may not always

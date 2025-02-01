@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import { BsArrowRight } from "react-icons/bs";
@@ -136,7 +134,7 @@ const Contact = () => {
               exit="hidden"
               className="text-2xl font-semibold text-center text-gray-800 mb-6"
             >
-              <h1 className="text-accent">We’d Love </h1>to Hear from You
+              <span className="text-accent">Connect </span>with us
             </motion.h2>
             <motion.form
               onSubmit={handleSubmit}
@@ -214,7 +212,7 @@ const Contact = () => {
                       isFormValid() ? "group-hover:-translate-y-[120%] group-hover:opacity-0" : ""
                     } transition-all duration-500`}
                   >
-                    Let´s bamboo
+                    Let´s bamboo!{" "}
                   </span>
                   <BsArrowRight
                     className={`${

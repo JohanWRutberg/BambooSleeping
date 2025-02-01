@@ -1,10 +1,9 @@
-"use client";
 import useFetchData from "@/hooks/useFetchData";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { FaInstagram, FaPinterestP } from "react-icons/fa";
+import { FaInstagram, FaPinterest, FaFacebook } from "react-icons/fa";
 import { LuBedDouble } from "react-icons/lu";
 import { GiPillow } from "react-icons/gi";
 import { TbStars } from "react-icons/tb";
@@ -58,7 +57,7 @@ export default function Home() {
     if (!text) return "";
     const cleanedText = removeSpecialCharacters(text);
     const words = cleanedText.split(" ");
-    return words.slice(0, 15).join(" ") + "...";
+    return words.slice(0, 30).join(" ") + "...";
   }
 
   return (
@@ -268,26 +267,6 @@ export default function Home() {
                 <Link href="/tag/sustainable">#Sustainable</Link>
 
                 {/* Add other tags */}
-              </div>
-            </div>
-            <div className="letstalk_sec mt-3">
-              <h2>Let's Talk</h2>
-              <div className="talk_sec">
-                <h4 className="text-center">
-                  Visit our social media platforms and share your experience with vehicle tents!
-                </h4>
-                <div className="social_talks flex flex-center gap-1 mt-2">
-                  <div className="st_icon">
-                    <Link href="https://www.instagram.com/bamboosleeping" target="_blank">
-                      <FaInstagram style={{ color: "#de3fac", fontSize: "30px" }} />
-                    </Link>
-                  </div>
-                  <div className="st_icon">
-                    <Link href="https://se.pinterest.com/bamboosleeping/" target="_blank">
-                      <FaPinterestP style={{ color: "#e60023", fontSize: "30px" }} />
-                    </Link>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
