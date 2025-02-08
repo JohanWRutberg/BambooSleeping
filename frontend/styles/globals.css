@@ -1882,7 +1882,7 @@ a.custom-button {
 
 .dark .blogcontent {
   background-color: #4c4c4c;
-  border: 1px solid #536b60;
+  border: none;
   color: #e2e8f0;
 }
 
@@ -1984,7 +1984,7 @@ a.custom-button {
 }
 
 .dark .slug_profile_info {
-  border: 1px solid #536b60;
+  border: none;
   background-color: #4c4c4c;
 }
 
@@ -2032,7 +2032,7 @@ a.custom-button {
 }
 
 .dark .slug_blog_links {
-  border: 1px solid #536b60;
+  border: none;
   background-color: #4c4c4c;
 }
 
@@ -2217,7 +2217,8 @@ a.custom-button {
   margin-bottom: 3rem;
   padding: 0.5rem;
   transition: 0.3s ease-in-out;
-  background-color: #ffffff;
+  background-color: #e9f5ec;
+  border: 1px solid #c6c6cc;
 }
 
 .cate_blog a img {
@@ -2230,6 +2231,7 @@ a.custom-button {
 .dark .cate_blog {
   background-color: #4c4c4c;
   box-shadow: 0 0 5px #222;
+  border: none;
 }
 
 .cate_blog .bloginfo {
