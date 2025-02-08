@@ -67,8 +67,10 @@ export default function CategoryPage({ initialData, tag }) {
   function getFirstWords(text) {
     if (!text) return "";
     const cleanedText = removeSpecialCharacters(text);
-    const words = cleanedText.split(" ");
-    return words.slice(0, 10).join(" ") + "...";
+    const firstLetters = cleanedText.slice(0, 150); // Take the first 100 characters
+    return firstLetters + (cleanedText.length > 150 ? "..." : "");
+    /* const words = cleanedText.split(" ");
+    return words.slice(0, 10).join(" ") + "..."; */
   }
 
   return (
