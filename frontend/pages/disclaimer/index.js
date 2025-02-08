@@ -31,7 +31,7 @@ export default function DisclaimerPage() {
           <div className="container">
             <div className="leftblog_data_markdown pb-5">
               <>
-                <div className="w-100 blogcontent">
+                <div className="w-100 disclaimercontent">
                   <h1>Disclaimer</h1>
                   <h2>How do we make money from our blog?</h2>
                   Some links on our blog are "affiliate links," which contain a special tracking code. <br />
@@ -78,7 +78,10 @@ export default function DisclaimerPage() {
                   <br />
                   <br />
                   If you have any questions or concerns about the use of AI-generated images on this blog, feel free to{" "}
-                  <Link href="/contact">Contact</Link> us.
+                  <Link href="/contact" className="">
+                    Contact
+                  </Link>{" "}
+                  us.
                   <br />
                   <br />
                 </div>
