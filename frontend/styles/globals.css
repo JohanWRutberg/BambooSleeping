@@ -1871,7 +1871,7 @@ a.custom-button {
 .blogcontent {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #fff;
+  background-color: #e9f5ec;
   border: 1px solid #c6c6cc;
   border-radius: 20px;
   margin-top: 3rem;
@@ -1974,7 +1974,7 @@ a.custom-button {
 .slug_profile_info {
   position: relative;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #e9f5ec;
   border: 1px solid #cdcdcd;
   border-radius: 10px;
   overflow: hidden;
@@ -2021,7 +2021,7 @@ a.custom-button {
 .slug_blog_links {
   position: relative;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #e9f5ec;
   border: 1px solid #cdcdcd;
   border-radius: 10px;
   overflow: hidden;
