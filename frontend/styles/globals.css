@@ -55,7 +55,7 @@ body.dark {
 }
 
 .scrollToTop:hover {
-  background-color: #d5b164;
+  background-color: #46905b;
   color: #fff;
 }
 
@@ -1120,7 +1120,7 @@ button {
 }
 
 .blogtag:hover {
-  background-color: #8099ab;
+  background-color: #4c9a62;
   color: #fff;
 }
 
@@ -1314,7 +1314,7 @@ button {
 }
 
 .tags_list a:hover {
-  background-color: #8099ab;
+  background-color: #4c9a62;
   color: #fff;
 }
 
@@ -1903,6 +1903,10 @@ a.custom-button {
   font-size: 18px;
   font-weight: 600;
   color: #f68f3d;
+}
+
+.blogcontent a:hover {
+  color: #e2e8f0;
 }
 
 .blogcontent h2 {
