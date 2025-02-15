@@ -33,11 +33,11 @@ function generateSiteMap(posts) {
 
     // Generate blog URLs
     const blogUrl = `
-          <url>
-            <loc>${`${BASE_URL}/blog/${slug}`}</loc>
-            <lastmod>${lastmod}</lastmod>
-          </url>
-        `;
+        <url>
+          <loc>${`${BASE_URL}/blog/${slug}`}</loc>
+          <lastmod>${lastmod}</lastmod>
+        </url>
+      `;
   });
 
   // Create URL entries for unique categories
@@ -64,7 +64,6 @@ function generateSiteMap(posts) {
     )
     .join("");
 
-  // Combine everything into a full sitemap
   return `<?xml version="1.0" encoding="UTF-8"?>
       <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
         <!-- Static URLs -->
@@ -84,17 +83,17 @@ function generateSiteMap(posts) {
           .map(({ slug, createdAt }) => {
             const lastmod = createdAt ? formatDate(createdAt) : "2024-01-01";
             return `
-                <url>
-                  <loc>${`${BASE_URL}/blog/${slug}`}</loc>
-                  <lastmod>${lastmod}</lastmod>
-                </url>
-              `;
+              <url>
+                <loc>${`${BASE_URL}/blog/${slug}`}</loc>
+                <lastmod>${lastmod}</lastmod>
+              </url>
+            `;
           })
           .join("")}
-          ${categoryUrls}
-          ${tagUrls}
-        </urlset>
-      `;
+        ${categoryUrls}
+        ${tagUrls}
+      </urlset>
+    `;
 }
 
 export async function getServerSideProps({ res }) {
