@@ -167,21 +167,11 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
               : "BambooSleeping: Discover luxurious, eco-friendly bamboo pillows and bedding. Experience unmatched comfort, breathability, and sustainability in every product."
           }
         />
-        <meta
-          name="keywords"
-          content={
-            blog.title ||
-            "bamboo pillows, bamboo bedding, eco-friendly bedding, breathable pillows, sustainable fabric, bamboo duvet covers, bamboo pillowcases, luxury bamboo sheets, cooling bamboo bedding"
-          }
-        />
+        <meta name="keywords" content={blog.title || "Blog post"} />
         <meta property="og:title" content={blog.title || "Blog Post"} />
         <meta
           property="og:description"
-          content={
-            blog.description
-              ? blog.description.slice(0, 150)
-              : "BambooSleeping: Discover luxurious, eco-friendly bamboo pillows and bedding. Experience unmatched comfort, breathability, and sustainability in every product."
-          }
+          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Bamboo Sleeping"}
         />
         <meta property="og:image" content={blog.image || "/default-image.png"} />
         <meta property="og:url" content={`https://www.bamboosleeping.com${router.asPath}`} />
@@ -189,11 +179,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
         <meta name="twitter:title" content={blog.title || "Blog Post"} />
         <meta
           name="twitter:description"
-          content={
-            blog.description
-              ? blog.description.slice(0, 150)
-              : "BambooSleeping: Discover luxurious, eco-friendly bamboo pillows and bedding. Experience unmatched comfort, breathability, and sustainability in every product."
-          }
+          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Bamboo Sleeping"}
         />
         <meta name="twitter:image" content={blog.image || "/default-image.png"} />
       </Head>
@@ -203,7 +189,7 @@ export default function BlogPage({ blog = {}, blogPostLinks = [] }) {
           <div className="topslug_titles">
             <h1 className="slugtitle">{blog.title || "Untitled Post"}</h1>
             <h5>
-              By <span>TopGear Tents</span>.{" "}
+              By <span>Bamboo Sleeping</span>.{" "}
               {blog.createdAt
                 ? new Date(blog.createdAt).toLocaleDateString("en-US", {
                     month: "long",

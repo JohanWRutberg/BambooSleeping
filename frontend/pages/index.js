@@ -72,7 +72,6 @@ export default function Home() {
           name="keywords"
           content="bamboo pillows, bamboo bedding, eco-friendly bedding, breathable pillows, sustainable fabric, bamboo duvet covers, bamboo pillowcases, luxury bamboo sheets, cooling bamboo bedding"
         />
-        {/* Facebook Meta Tags */}
         <meta property="og:url" content="https://www.bamboosleeping.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Bamboo Sleeping Blog" />
@@ -81,8 +80,6 @@ export default function Home() {
           content="BambooSleeping: Discover luxurious, eco-friendly bamboo pillows and bedding. Experience unmatched comfort, breathability, and sustainability in every product."
         />
         <meta property="og:image" content="https://bamboosleeping.com" />
-
-        {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="bamboosleeping.com" />
         <meta property="twitter:url" content="https://www.bamboosleeping.com/" />
@@ -123,7 +120,7 @@ export default function Home() {
       </section>
 
       <section className="main_blog_section">
-        <div className="right-container flex flex-sb flex-start flex-wrap">
+        <div className="container flex flex-sb flex-start flex-wrap">
           <div className="leftblog_sec">
             <h2>Recently Published</h2>
             <div className="blogs_sec">

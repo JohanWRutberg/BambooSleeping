@@ -227,7 +227,7 @@ export default function Header() {
                 Bedding
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/topics/" className="text-md hover:text-[#4C9A62]">
                 Something else
               </Link>
@@ -241,7 +241,7 @@ export default function Header() {
               <Link href="/topics/acessories" className="text-md hover:text-[#4C9A62]">
                 Something else
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

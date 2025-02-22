@@ -1,8 +1,14 @@
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+
+function capitalizeFirstLetter(str) {
+  if (!str) return "";
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
 
 export default function CategoryPage({ initialData, category }) {
   const [loading, setLoading] = useState(!initialData);
@@ -75,13 +81,31 @@ export default function CategoryPage({ initialData, category }) {
 
   return (
     <>
+      <Head>
+        <title>{category ? `${capitalizeFirstLetter(category)} | Bamboo Sleeping` : "Bamboo Sleeping"}</title>
+        <meta name="keywords" content={category || "Tags on Bamboo Sleeping"} />
+        <meta property="og:title" content={category ? capitalizeFirstLetter(category) : "Tags on Bamboo Sleeping"} />
+        <meta
+          property="og:description"
+          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Bamboo Sleeping"}
+        />
+        <meta property="og:image" content={blog.image || "/default-image.png"} />
+        <meta property="og:url" content={`https://www.bamboosleeping.com${router.asPath}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={category ? capitalizeFirstLetter(category) : "Tags on Bamboo Sleeping"} />
+        <meta
+          name="twitter:description"
+          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Bamboo Sleeping"}
+        />
+        <meta name="twitter:image" content={blog.image || "/default-image.png"} />
+      </Head>
       <div className="blogpage">
         <div className="category_slug">
           <div className="container">
             <div className="category_title">
               <div className="flex gap-1">
-                <h2>
-                  Categories:{" "}
+                <h1>
+                  {/* Categories:{" "} */}
                   {loading ? (
                     <div>Loading...</div>
                   ) : publishedblogs.length ? (
@@ -89,7 +113,7 @@ export default function CategoryPage({ initialData, category }) {
                   ) : (
                     category
                   )}
-                </h2>
+                </h1>
                 <span>{loading ? <div>0</div> : publishedblogs.filter((blog) => blog.blogcategory).length}</span>
               </div>
             </div>
@@ -120,7 +144,7 @@ export default function CategoryPage({ initialData, category }) {
                             <Image src="/img/Logo/Bamboo_logo_twogreen.png" height={50} width={50} alt="logo" />
                           </div>
                           <div className="flex flex-col flex-left gap-05">
-                            <h5>TopGear Tents</h5>
+                            <h5>Bamboo Sleeping</h5>
                             <span>
                               {new Date(item.createdAt).toLocaleDateString("en-US", {
                                 month: "long",
@@ -170,7 +194,8 @@ export async function getServerSideProps(context) {
   let initialData = [];
 
   try {
-    const res = await axios.get(`http://localhost:3000/api/getblog?blogcategory=${category}`);
+    /* const res = await axios.get(`http://localhost:3000/api/getblog?blogcategory=${category}`); */
+    const res = await axios.get(`https://www.bamboosleeping.com/api/getblog?blogcategory=${category}`);
     initialData = res.data;
   } catch (error) {
     console.error("Error fetching blog data", error);

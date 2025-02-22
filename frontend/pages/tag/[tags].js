@@ -1,8 +1,14 @@
 import axios from "axios";
 import Image from "next/image";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+
+function capitalizeFirstLetter(str) {
+  if (!str) return "";
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
 
 export default function CategoryPage({ initialData, tag }) {
   const [loading, setLoading] = useState(!initialData);
@@ -67,87 +73,107 @@ export default function CategoryPage({ initialData, tag }) {
   function getFirstWords(text) {
     if (!text) return "";
     const cleanedText = removeSpecialCharacters(text);
-    const firstLetters = cleanedText.slice(0, 150); // Take the first 100 characters
-    return firstLetters + (cleanedText.length > 150 ? "..." : "");
-    /* const words = cleanedText.split(" ");
-    return words.slice(0, 10).join(" ") + "..."; */
+    const words = cleanedText.split(" ");
+    return words.slice(0, 10).join(" ") + "...";
   }
 
   return (
-    <div className="blogpage">
-      <div className="category_slug">
-        <div className="container">
-          <div className="category_title">
-            <div className="flex gap-1">
-              <h2>Tags: {loading ? <div>Loading... </div> : tag}</h2>
-              <span>{loading ? <div>0</div> : publishedblogs.filter((blog) => blog.tags).length}</span>
-            </div>
-          </div>
-          <div className="category_blogs mt-3">
-            {loading ? (
-              <div className="wh-100 flex flex-center mt-2 pb-5">
-                <div className="loader"></div>
+    <>
+      <Head>
+        <title>{tag ? `${capitalizeFirstLetter(tag)} | Bamboo Sleeping` : "Bamboo Sleeping"}</title>
+        <meta name="keywords" content={tag || "Tags on Bamboo Sleeping"} />
+        <meta property="og:title" content={tag ? capitalizeFirstLetter(tag) : "Tags on Bamboo Sleeping"} />
+        <meta
+          property="og:description"
+          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Bamboo Sleeping"}
+        />
+        <meta property="og:image" content={blog.image || "/default-image.png"} />
+        <meta property="og:url" content={`https://www.bamboosleeping.com${router.asPath}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={tag ? capitalizeFirstLetter(tag) : "Tags on Bamboo Sleeping"} />
+        <meta
+          name="twitter:description"
+          content={blog.description ? blog.description.slice(0, 150) : "Blog post on Bamboo Sleeping"}
+        />
+        <meta name="twitter:image" content={blog.image || "/default-image.png"} />
+      </Head>
+      <div className="blogpage">
+        <div className="category_slug">
+          <div className="container">
+            <div className="category_title">
+              <div className="flex gap-1">
+                <h1>
+                  {/* Tags: */} {loading ? <div>Loading... </div> : tag}
+                </h1>
+                <span>{loading ? <div>0</div> : publishedblogs.filter((blog) => blog.tags).length}</span>
               </div>
-            ) : (
-              publishedblogs.map((item) => {
-                const firstImageUrl = extractFirstImageUrl(item.description);
-                return (
-                  <div className="cate_blog" key={item._id}>
-                    <Link href={`/blog/${item.slug}`}>
-                      <Image src={firstImageUrl || "/img/noimage.jpg"} alt={item.title} width={1250} height={830} />
-                    </Link>
-
-                    <div className="bloginfo mt-2">
-                      <Link href={`/tag/${item.tags[0]}`}>
-                        <div className="blogtag">{item.tags[0]}</div>
-                      </Link>
+            </div>
+            <div className="category_blogs mt-3">
+              {loading ? (
+                <div className="wh-100 flex flex-center mt-2 pb-5">
+                  <div className="loader"></div>
+                </div>
+              ) : (
+                publishedblogs.map((item) => {
+                  const firstImageUrl = extractFirstImageUrl(item.description);
+                  return (
+                    <div className="cate_blog" key={item._id}>
                       <Link href={`/blog/${item.slug}`}>
-                        <h3>{item.title}</h3>
+                        <Image src={firstImageUrl || "/img/noimage.jpg"} alt={item.title} width={1250} height={830} />
                       </Link>
-                      <p>{getFirstWords(item.description)}</p>
-                      <div className="blogauthor flex gap-1">
-                        <div className="blogaimg">
-                          <Image src="/img/Logo/Bamboo_logo_twogreen.png" width={50} height={50} />
-                        </div>
-                        <div className="flex flex-col flex-left gap-05">
-                          <h4>TopGear Tents</h4>
-                          <span>
-                            {new Date(item.createdAt).toLocaleDateString("en-US", {
-                              month: "long",
-                              day: "numeric",
-                              year: "numeric"
-                            })}
-                          </span>
+
+                      <div className="bloginfo mt-2">
+                        <Link href={`/tag/${item.tags[0]}`}>
+                          <div className="blogtag">{item.tags[0]}</div>
+                        </Link>
+                        <Link href={`/blog/${item.slug}`}>
+                          <h3>{item.title}</h3>
+                        </Link>
+                        <p>{getFirstWords(item.description)}</p>
+                        <div className="blogauthor flex gap-1">
+                          <div className="blogaimg">
+                            <Image src="/img/Logo/Bamboo_logo_twogreen.png" alt="logo" width={50} height={50} />
+                          </div>
+                          <div className="flex flex-col flex-left gap-05">
+                            <h4>Bamboo Sleeping</h4>
+                            <span>
+                              {new Date(item.createdAt).toLocaleDateString("en-US", {
+                                month: "long",
+                                day: "numeric",
+                                year: "numeric"
+                              })}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })
-            )}
-          </div>
-          <div className="blogpagination">
-            <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
-              Previous
-            </button>
-            {pageNumbers
-              .slice(Math.max(currentPage - 3, 0), Math.min(currentPage + 2, pageNumbers.length))
-              .map((number) => (
-                <button
-                  key={number}
-                  onClick={() => paginate(number)}
-                  className={currentPage === number ? "active" : ""}
-                >
-                  {number}
-                </button>
-              ))}
-            <button onClick={() => paginate(currentPage + 1)} disabled={currentBlogs.length < perPage}>
-              Next
-            </button>
+                  );
+                })
+              )}
+            </div>
+            <div className="blogpagination">
+              <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
+                Previous
+              </button>
+              {pageNumbers
+                .slice(Math.max(currentPage - 3, 0), Math.min(currentPage + 2, pageNumbers.length))
+                .map((number) => (
+                  <button
+                    key={number}
+                    onClick={() => paginate(number)}
+                    className={currentPage === number ? "active" : ""}
+                  >
+                    {number}
+                  </button>
+                ))}
+              <button onClick={() => paginate(currentPage + 1)} disabled={currentBlogs.length < perPage}>
+                Next
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

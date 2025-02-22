@@ -6,26 +6,17 @@ export default function DisclaimerPage() {
     <>
       <Head>
         <title>Disclaimer | Bamboo Sleeping</title>
-        <meta
-          name="description"
-          content="BambooSleeping: Discover luxurious, eco-friendly bamboo pillows and bedding. Experience unmatched comfort, breathability, and sustainability in every product."
-        />
+        <meta name="description" content="Learn more about Bamboo Sleeping and our mission." />
 
         {/* Open Graph Metadata */}
-        <meta property="og:title" content="Disclaimer | BambooSleeping" />
-        <meta
-          property="og:description"
-          content="BambooSleeping: Discover luxurious, eco-friendly bamboo pillows and bedding. Experience unmatched comfort, breathability, and sustainability in every product."
-        />
+        <meta property="og:title" content="Disclaimer | Bamboo Sleeping" />
+        <meta property="og:description" content="Learn more about Bamboo Sleeping and our mission." />
         <meta property="og:image" content="/img/disclaimer-og-image.jpg" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card Metadata */}
         <meta name="twitter:title" content="Disclaimer | Bamboo Sleeping" />
-        <meta
-          name="twitter:description"
-          content="BambooSleeping: Discover luxurious, eco-friendly bamboo pillows and bedding. Experience unmatched comfort, breathability, and sustainability in every product."
-        />
+        <meta name="twitter:description" content="Learn more about Bamboo Sleeping and our mission." />
         <meta name="twitter:image" content="/img/disclaimer-og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>

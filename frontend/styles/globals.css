@@ -1096,14 +1096,6 @@ button {
   background-color: #333333;
 }
 
-/* .blogaimg .logo {
-  content: url("/img/Logo/BambooSleeping_logo_black.png");
-}
-
-.dark .blogaimg .logo {
-  content: url("/img/Logo/BambooSleeping_logo_white.png");
-} */
-
 .blogaimg img {
   width: 40px;
   object-fit: cover;
@@ -1424,24 +1416,24 @@ button {
   font-size: 24px;
 }
 
-/* Target the first Link (Instagram) */
-.social_talks a:nth-child(1) .st_icon svg {
-  color: #de3fac; /* Instagram icon */
-}
-
-/* Target the second Link (Pinterest) */
-.social_talks a:nth-child(2) .st_icon svg {
-  color: #e60023; /* Pinterest icon */
-}
-
-/* Directly target the third .st_icon (Facebook) */
-.social_talks > div:nth-child(3) svg {
-  color: #0866ff; /* Facebook icon */
-}
-
 .st_icon:hover svg {
   color: #fff; /* Hover effect for all icons */
 }
+
+/* Target the first Link (Instagram) */
+/* .social_talks a:nth-child(1) .st_icon svg {
+  color: #de3fac;
+} */
+
+/* Target the second Link (Pinterest) */
+/* .social_talks a:nth-child(2) .st_icon svg {
+  color: #e60023;
+} */
+
+/* Directly target the third .st_icon (Facebook) */
+/* .social_talks > div:nth-child(3) svg {
+  color: #0866ff;
+} */
 
 .st_icon:hover {
   background-color: #bec4e1;
@@ -1581,25 +1573,18 @@ a:hover .st_icon_amazon,
 
 .footer .container {
   display: flex;
-  flex-wrap: wrap; /* Enables wrapping for better responsiveness */
-  justify-content: space-between; /* Space between items */
-  gap: 2rem; /* Add spacing between elements */
-  max-width: 1200px; /* Limit max width for readability */
-  margin: 0 auto; /* Center container */
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-
-/* .footer_logo .logo {
-  content: url("/img/Logo/BambooSleeping_logo_black.png");
-}
-
-.dark .footer_logo .logo {
-  content: url("/img/Logo/BambooSleeping_logo_white.png");
-} */
 
 .footer_logo,
 .q_links,
 .q_links.affiliate_disclaimer {
-  flex: 1 1 calc(33.333% - 2rem); /* Flexible width with space for gap */
+  flex: 1 1 calc(25% - 3rem);
   padding: 1rem;
   text-align: left;
 }
@@ -1607,7 +1592,7 @@ a:hover .st_icon_amazon,
 .footer_logo img {
   width: 100px;
   height: auto;
-  margin-bottom: 1rem; /* Spacing below logo */
+  margin-bottom: 1rem;
 }
 
 .footer_logo h4,
@@ -1866,10 +1851,6 @@ a.custom-button {
   height: 100%;
   border-radius: 15px;
   object-fit: cover;
-}
-
-.blog h1 {
-  font-size: 45px;
 }
 
 .blogcontent {
