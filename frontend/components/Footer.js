@@ -45,7 +45,7 @@ export default function Footer() {
           <ul>
             <li>
               <Link
-                href="https://www.instagram.com/beatmastermind"
+                href="https://www.instagram.com/bamboosleeping"
                 target="_blank"
                 style={{ color: "#de3fac", fontSize: "14px" }}
               >
@@ -54,7 +54,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="https://se.pinterest.com/beatmastermindaff"
+                href="https://se.pinterest.com/bamboosleeping"
                 target="_blank"
                 style={{ color: "#e60023", fontSize: "14px" }}
               >
