@@ -96,7 +96,7 @@ export default function Document() {
         </noscript>
 
         {/* Favicon */}
-        <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="/favicon.ico" sizes="32x32" />
 
         {/* Canonical URL */}
         {/* <link rel="canonical" href="https://www.bamboosleeping.com" /> */}
